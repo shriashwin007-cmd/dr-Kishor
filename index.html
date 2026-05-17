@@ -31,7 +31,7 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 40;
+            z-index: 100;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid #f3f4f6;
@@ -116,6 +116,8 @@
         .hero {
             padding: 8rem 1.5rem 5rem;
             background: linear-gradient(to bottom right, #f9fafb, white);
+            position: relative;
+            z-index: 10;
         }
 
         .hero-grid {
@@ -237,6 +239,8 @@
         .stats-bar {
             padding: 4rem 1.5rem;
             background: linear-gradient(to right, #0A0E27, #1a237e);
+            position: relative;
+            z-index: 10;
         }
 
         .stats-bar-grid {
@@ -273,6 +277,8 @@
         .services {
             padding: 6rem 1.5rem;
             background: white;
+            position: relative;
+            z-index: 10;
         }
 
         .section-header {
@@ -370,6 +376,8 @@
         .gallery {
             padding: 6rem 1.5rem;
             background: #f9fafb;
+            position: relative;
+            z-index: 10;
         }
 
         .gallery-grid {
@@ -415,6 +423,8 @@
         .testimonials {
             padding: 6rem 1.5rem;
             background: white;
+            position: relative;
+            z-index: 10;
         }
 
         .testimonials-grid {
@@ -495,6 +505,7 @@
             background: linear-gradient(to bottom right, #0A0E27, #1a237e);
             position: relative;
             overflow: hidden;
+            z-index: 10;
         }
 
         .cta-glow-1 {
@@ -610,6 +621,8 @@
             background: #111827;
             color: #d1d5db;
             padding: 4rem 1.5rem;
+            position: relative;
+            z-index: 10;
         }
 
         .footer-grid {
@@ -986,9 +999,159 @@
                 padding-top: 0;
             }
         }
+
+        /* Particle Canvas */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        /* Scroll Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+        }
+
+        /* 3D Avatar Doll */
+        .avatar-doll {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-10px) rotateY(10deg); }
+        }
+
+        .doll-head {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .doll-eye {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            animation: blink 4s infinite;
+        }
+
+        @keyframes blink {
+            0%, 48%, 52%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .doll-eye.left {
+            left: 15px;
+        }
+
+        .doll-eye.right {
+            right: 15px;
+        }
+
+        .doll-mouth {
+            width: 20px;
+            height: 10px;
+            border: 2px solid white;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .doll-body {
+            width: 40px;
+            height: 50px;
+            background: linear-gradient(180deg, #0891b2 0%, #1d4ed8 100%);
+            border-radius: 20px 20px 10px 10px;
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            box-shadow: 0 5px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .doll-arm {
+            width: 15px;
+            height: 35px;
+            background: linear-gradient(180deg, #06b6d4 0%, #2563eb 100%);
+            border-radius: 10px;
+            position: absolute;
+            top: 65px;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-15deg); }
+        }
+
+        .doll-arm.left {
+            left: 5px;
+            transform-origin: top left;
+        }
+
+        .doll-arm.right {
+            right: 5px;
+            transform-origin: top right;
+            animation-delay: 0.5s;
+        }
+
+        .chatbot-messages {
+            position: relative;
+        }
+
+        /* Enhanced chatbot header */
+        .chatbot-header {
+            background: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+        }
     </style>
 </head>
 <body>
+    <!-- Particle Background -->
+    <canvas id="particleCanvas"></canvas>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
@@ -1064,7 +1227,7 @@
     </section>
 
     <!-- Stats Bar -->
-    <section class="stats-bar">
+    <section class="stats-bar scroll-animate">
         <div class="stats-bar-grid">
             <div class="stats-bar-item">
                 <div class="stats-bar-number">1,615+</div>
@@ -1090,7 +1253,7 @@
     </section>
 
     <!-- Services -->
-    <section class="services" id="services">
+    <section class="services scroll-animate" id="services">
         <div class="container">
             <div class="section-header">
                 <div class="badge">
@@ -1176,7 +1339,7 @@
     </section>
 
     <!-- Gallery -->
-    <section class="gallery">
+    <section class="gallery scroll-animate">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">State-of-the-Art Facility</h2>
@@ -1221,7 +1384,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials">
+    <section class="testimonials scroll-animate">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Global Trust</h2>
@@ -1460,6 +1623,17 @@
                 <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
         </div>
+        <!-- 3D Doll Avatar -->
+        <div class="avatar-doll">
+            <div class="doll-head">
+                <div class="doll-eye left"></div>
+                <div class="doll-eye right"></div>
+                <div class="doll-mouth"></div>
+            </div>
+            <div class="doll-body"></div>
+            <div class="doll-arm left"></div>
+            <div class="doll-arm right"></div>
+        </div>
         <div id="chatMessages" class="chatbot-messages">
             <div class="message bot">
                 <div class="message-bubble">Hi there! 👋 I'm your AI dental assistant. How can I help you today?</div>
@@ -1582,6 +1756,149 @@
             const dateInputs = document.querySelectorAll('input[type="date"]');
             const today = new Date().toISOString().split('T')[0];
             dateInputs.forEach(input => input.min = today);
+
+            // Initialize particles
+            initParticles();
+            // Initialize scroll animations
+            initScrollAnimations();
+        }
+
+        // ===== PARTICLE SYSTEM =====
+        function initParticles() {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const particleCount = 80;
+            const mouse = { x: null, y: null, radius: 150 };
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.speedY = Math.random() * 1 - 0.5;
+                    this.color = `rgba(${Math.random() * 100 + 100}, ${Math.random() * 100 + 180}, 255, ${Math.random() * 0.5 + 0.3})`;
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    // Mouse interaction
+                    if (mouse.x != null && mouse.y != null) {
+                        const dx = mouse.x - this.x;
+                        const dy = mouse.y - this.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < mouse.radius) {
+                            const force = (mouse.radius - distance) / mouse.radius;
+                            const directionX = dx / distance;
+                            const directionY = dy / distance;
+                            
+                            this.x -= directionX * force * 3;
+                            this.y -= directionY * force * 3;
+                        }
+                    }
+
+                    // Bounce off edges
+                    if (this.x > canvas.width || this.x < 0) {
+                        this.speedX *= -1;
+                    }
+                    if (this.y > canvas.height || this.y < 0) {
+                        this.speedY *= -1;
+                    }
+                }
+
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            // Connect particles
+            function connectParticles() {
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a + 1; b < particles.length; b++) {
+                        const dx = particles[a].x - particles[b].x;
+                        const dy = particles[a].y - particles[b].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 120) {
+                            ctx.strokeStyle = `rgba(6, 182, 212, ${1 - distance / 120})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            // Animation loop
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                connectParticles();
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            // Mouse tracking
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.x;
+                mouse.y = e.y;
+            });
+
+            window.addEventListener('mouseleave', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            // Resize handler
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all scroll-animate elements
+            document.querySelectorAll('.scroll-animate, .scroll-fade').forEach(el => {
+                observer.observe(el);
+            });
         }
     </script>
 </body>
