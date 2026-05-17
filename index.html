@@ -203,6 +203,7 @@
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .hero-image-container {
@@ -623,6 +624,12 @@
             grid-column: span 2;
         }
 
+        @media (max-width: 768px) {
+            .footer-brand {
+                grid-column: span 1;
+            }
+        }
+
         .footer-logo {
             display: flex;
             align-items: center;
@@ -753,6 +760,12 @@
 
         .form-grid-2 {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 768px) {
+            .form-grid-2 {
+                grid-template-columns: 1fr;
+            }
         }
 
         .form-group label {
@@ -946,6 +959,33 @@
             width: 28px;
             height: 28px;
         }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .cta h2 {
+                font-size: 2rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .stat-item {
+                padding-left: 0;
+                border-left: none;
+                border-top: 2px solid #e5e7eb;
+                padding-top: 1rem;
+            }
+            .stat-item:first-child {
+                border-top: none;
+                padding-top: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -953,7 +993,7 @@
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo-section">
-                <img src="/mnt/user-data/uploads/2023-12-19-2.jpg" alt="Logo" class="logo-img">
+                <img src="2023-12-19-2.jpg" alt="Dr. Kishor's Dentistry Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>Dr. Kishor's Dentistry</h1>
                     <p>India's #1 Diamond Invisalign Centre</p>
@@ -1017,7 +1057,7 @@
             <div class="hero-image-container">
                 <div class="hero-image-glow"></div>
                 <div class="hero-image-wrapper">
-                    <img src="/mnt/user-data/uploads/2023-12-22.jpg" alt="Modern Clinic" class="hero-image">
+                    <img src="2023-12-22.jpg" alt="Dr. Kishor's Dentistry Reception" class="hero-image">
                 </div>
             </div>
         </div>
@@ -1050,7 +1090,7 @@
     </section>
 
     <!-- Services -->
-    <section class="services">
+    <section class="services" id="services">
         <div class="container">
             <div class="section-header">
                 <div class="badge">
@@ -1146,28 +1186,34 @@
             </div>
 
             <div class="gallery-grid">
+                <!-- Gallery 1: Waiting area -->
                 <div class="gallery-item">
-                    <img src="/mnt/user-data/uploads/2024-08-28-2.jpg" alt="Clinic" class="gallery-img">
+                    <img src="2024-08-28-2.jpg" alt="Waiting Area" class="gallery-img">
                     <div class="gallery-overlay"></div>
                 </div>
+                <!-- Gallery 2: Invisalign display -->
                 <div class="gallery-item">
-                    <img src="/mnt/user-data/uploads/2024-08-28-6.jpg" alt="Clinic" class="gallery-img">
+                    <img src="2024-08-28-6.jpg" alt="Invisalign Display" class="gallery-img">
                     <div class="gallery-overlay"></div>
                 </div>
+                <!-- Gallery 3: Consultation room -->
                 <div class="gallery-item">
-                    <img src="/mnt/user-data/uploads/2024-08-28-9.jpg" alt="Clinic" class="gallery-img">
+                    <img src="2024-08-28-10.jpg" alt="Consultation Room" class="gallery-img">
                     <div class="gallery-overlay"></div>
                 </div>
+                <!-- Gallery 4: Consultation area -->
                 <div class="gallery-item">
-                    <img src="/mnt/user-data/uploads/2024-08-28-13.jpg" alt="Clinic" class="gallery-img">
+                    <img src="2024-08-28-8.jpg" alt="Consultation Area" class="gallery-img">
                     <div class="gallery-overlay"></div>
                 </div>
+                <!-- Gallery 5: DOOZY Robot -->
                 <div class="gallery-item">
-                    <img src="/mnt/user-data/uploads/2024-08-28-17.jpg" alt="Clinic" class="gallery-img">
+                    <img src="2024-08-28-9.jpg" alt="DOOZY Robot - Advanced Technology" class="gallery-img">
                     <div class="gallery-overlay"></div>
                 </div>
+                <!-- Gallery 6: Hallway -->
                 <div class="gallery-item">
-                    <img src="/mnt/user-data/uploads/2024-08-28-7.jpg" alt="Clinic" class="gallery-img">
+                    <img src="2024-08-28-7.jpg" alt="Clinic Hallway" class="gallery-img">
                     <div class="gallery-overlay"></div>
                 </div>
             </div>
@@ -1246,7 +1292,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="cta">
+    <section class="cta" id="contact">
         <div class="cta-glow-1"></div>
         <div class="cta-glow-2"></div>
         <div class="cta-content">
@@ -1288,7 +1334,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <img src="/mnt/user-data/uploads/2023-12-19-2.jpg" alt="Logo">
+                    <img src="2023-12-19-2.jpg" alt="Logo">
                     <div>
                         <h3>Dr. Kishor's Dentistry</h3>
                         <p>India's #1 Diamond Invisalign Centre</p>
